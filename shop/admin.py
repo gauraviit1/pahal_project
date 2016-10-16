@@ -1,6 +1,6 @@
 from django.contrib import admin
 from shop.models import Cateogry, Product
-from shop.forms import CateogryForm
+
 
 # Register your models here.\
 class CateogryAdmin(admin.ModelAdmin):
@@ -12,7 +12,7 @@ class CateogryAdmin(admin.ModelAdmin):
 admin.site.register(Cateogry, CateogryAdmin)
 
 class ProductAdmin(admin.ModelAdmin):
-    form = CateogryForm
+    
     list_display = ['name', 'slug', 'price', 'stock',
                     'available', 'created', 'updated',
                     ]
