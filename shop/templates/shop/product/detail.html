@@ -8,8 +8,36 @@
 {#        Products#}
 {#    {% endif %}#}
 {% endblock %}
+{% block carousel %}
+{% endblock %}
+
 {% block content %}
-    <div class="product-detail">
+    <div class ="container" style="padding-top: 50px">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 thumbnail">
+                <img class="center-block" src="{% if product.image %}{{ product.image.url }}
+                 {% else %}
+                 {% static 'img/no_image.png' %}
+                {% endif %}">
+                
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <h1>{{ product.name }}</h1>
+                <h2><a href="{{ product.cateogry.get_absolute_url }}">{{ product.cateogry }}</a></h2>
+                <p class="lead">&#x20b9;{{ product.price }}</p>
+                <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                    {{ cart_product_form }}
+                    {% csrf_token %}
+                    <input class ="btn btn-primary" type="submit" value="Add to Cart">
+                </form>
+                {{ product.description|linebreaks }}
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+<div class="product-detail">
         <img src="{% if product.image %}{{ product.image.url }}
         {% else %}
         {% static 'img/no_image.png' %}
@@ -24,4 +52,3 @@
         </form>
         {{ product.description|linebreaks }}
     </div>
-{% endblock %}

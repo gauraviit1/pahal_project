@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'shop',
     'cart',
     'orders',
@@ -125,3 +126,5 @@ EMAIL_HOST_PASSWORD = 'Jail!@12'
 EMAIL_PORT = 587
 
 EMAIL_USE_TLS = True
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'

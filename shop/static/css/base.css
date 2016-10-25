@@ -127,6 +127,8 @@ ul.errorlist {
     color:#444;
     padding:15px 100px;
     overflow:auto;
+    position: relative;
+    top:-70px;
 }
 
 #header .logo {
@@ -193,8 +195,7 @@ ul.errorlist {
 }
 
 .product-list .item img {
-    width:100px;
-    max-height: 100px;
+    width:100%;
     margin-bottom:8px;
 }
 
@@ -315,3 +316,10 @@ ul.errorlist {
 .recommendations.cart img {
     width:120px;
 }
+
+.pahal-logo{
+    position: relative;
+    left:110px;
+    /*z-index: 1;*/
+}
+
