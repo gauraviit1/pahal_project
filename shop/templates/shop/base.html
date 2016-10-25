@@ -11,10 +11,14 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Fixed Top Navbar Example for Bootstrap</title>
+    <title> {% block title%}
+    {% endblock %}
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 
 
-  
+
+    
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -37,6 +41,11 @@
     <![endif]-->
 
     <style>
+
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+    }
   .carousel-inner{
   width:100%;
   max-height: 200px;
@@ -136,14 +145,15 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="active"><a href="/" style="font-family: 'Oswald', sans-serif;">Home</a></li>
+            <li><a href="#about" style="font-family: 'Oswald', sans-serif;">About</a></li>
+            <li><a href="#contact" style="font-family: 'Oswald', sans-serif;">Contact</a></li>
+            <li><a href="{% url 'testimonials:testimonial_list' %}" style="font-family: 'Oswald', sans-serif;"> Testimonial</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Select Product <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-family: 'Oswald', sans-serif;">Select Product <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li>
-                <a href="{% url 'shop:product_list' %}">All</a>
+                <a href="{% url 'shop:product_list' %}" >All</a>
                 </li>
                 {% for c in cateogries %}
                 <li {% if cateogry.slug == c.slug %} class="selected"{% endif %}>
@@ -156,7 +166,7 @@
             <li>{%if not cateogry %}
                 
                 {% else %}
-                <a href="{{ cateogry.get_absolute_url }}" class="lead">{{cateogry}}</a>
+                <a href="{{ cateogry.get_absolute_url }}" style="font-family: 'Oswald', sans-serif;">{{cateogry}}</a>
                 {% endif %}
             </li>
           </ul>
@@ -181,8 +191,8 @@
             </li>
           </ul>
         </div><!--/.nav-collapse -->
-        <div class="text-center">
-        <h3>Every paisa spent by you will be used for welfare of inmates</h3>    
+        <div class="text-center center-block" style="font-family: 'Oswald', sans-serif;">
+        <h3>"Every paisa spent by you will be used for welfare of inmates"</h3>    
         
         </div>
       </div>
