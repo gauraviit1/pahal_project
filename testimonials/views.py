@@ -10,8 +10,6 @@ def read_and_write_testimonial(request):
     		form.save()
     else:
     	form = TestimonialForm()		
-
-
     return render(request, 'testimonial/testimonial.html',
                   {'form': form,
                    'testimonials': testimonials})
