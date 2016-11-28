@@ -141,7 +141,7 @@
         
   .navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus {
       text-decoration: none;
-      background-color: #33aa33;
+      background-color: #eeeeee;
   }
         
   .navbar-custom .navbar-brand {
@@ -153,6 +153,14 @@
   .navbar-custom .icon-bar {
       background-color:#33aa33;
   }
+
+
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top:0;
+    background-color:#eeeeee;
+  }  
 
   </style>
 
@@ -211,9 +219,9 @@
             {% with total_items=cart|length %}
             {% if cart|length > 0 %}
                 Your cart:
-                <a href="{% url 'cart:cart_detail' %}">
+                <a href="{% url 'cart:cart_detail' %}" class="bg-primary" >
                 {{ total_items }} item{{ total_items|pluralize }},
-                &#x20B9;{{ cart.get_total_price }}
+                Rs. {{ cart.get_total_price }}
                 </a>
              {% else %}
                 Your Cart is empty
