@@ -31,8 +31,8 @@ def product_detail(request, id, slug):
 
 def mainPage(request):
     
-    bakery_products = Product.objects.filter(available=True, cateogry=1)
-    handicraft_products = Product.objects.filter(available=True, cateogry=2)
+    bakery_products = Product.objects.filter(available=True, cateogry__name="Bakery")
+    handicraft_products = Product.objects.filter(available=True, cateogry__name="Handicrafts")
 
     return render(request, 'shop/product/main.html', {
         'bakery_products': bakery_products,
