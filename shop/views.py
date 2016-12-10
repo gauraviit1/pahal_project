@@ -18,6 +18,7 @@ def product_list(request, cateogry_slug=None):
         'testimonials':testimonials,
     })
 
+
 def product_detail(request, id, slug):
     product = get_object_or_404(Product, id=id,
                                      slug=slug,
@@ -28,3 +29,13 @@ def product_detail(request, id, slug):
                    'cart_product_form': cart_product_form})
 
 
+def mainPage(request):
+    
+    bakery_products = Product.objects.filter(available=True, cateogry=1)
+    handicraft_products = Product.objects.filter(available=True, cateogry=2)
+
+    return render(request, 'shop/product/main.html', {
+        'bakery_products': bakery_products,
+        'handicraft_products': handicraft_products,
+        
+    })

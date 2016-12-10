@@ -21,7 +21,7 @@ from django.views.generic import RedirectView
 
 
 urlpatterns = [
-    url(r'^$',RedirectView.as_view(pattern_name='shop:product_list', permanent=False)),
+    url(r'^$', RedirectView.as_view(pattern_name='shop:main_page', permanent=False)),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^shop/', include('shop.urls', namespace='shop')),
     url(r'^cart/', include('cart.urls', namespace='cart')),
