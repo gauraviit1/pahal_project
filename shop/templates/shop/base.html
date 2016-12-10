@@ -224,26 +224,7 @@
             <li><a href="#about" style="font-family: 'Oswald', sans-serif;">About</a></li>
             <li><a href="#contact" style="font-family: 'Oswald', sans-serif;">Contact</a></li>
             <li><a href="{% url 'testimonials:testimonial_list' %}" style="font-family: 'Oswald', sans-serif;"> Testimonial</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-family: 'Oswald', sans-serif;">Select Product <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li>
-                <a href="{% url 'shop:product_list' %}" >All</a>
-                </li>
-                {% for c in cateogries %}
-                <li {% if cateogry.slug == c.slug %} class="selected"{% endif %}>
-                    <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
-                </li>
-                {% endfor %}
-                
-              </ul>
-            </li>
-            <li>{%if not cateogry %}
-                
-                {% else %}
-                <a href="{{ cateogry.get_absolute_url }}" style="font-family: 'Oswald', sans-serif;">{{cateogry}}</a>
-                {% endif %}
-            </li>
+            
           </ul>
           <ul class="nav navbar-nav navbar-right">
             
