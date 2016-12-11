@@ -8,7 +8,15 @@ Testimonials
 {% endblock %}
 
 {% block content %}
-<div class="col-sm-6 col-md-12">
+<div class="col-md-6 pull-right">
+    <form action="." method="post" >
+        {{ form|crispy }}
+        <p><input class="btn btn-block btn-primary"type="submit" value="Post Feedback"></p>
+        {% csrf_token %}
+    </form>
+</div>
+
+<div class="col-sm-6 col-md-6">
 {% for testimonial in testimonials %}
 
 <div class="content">
@@ -31,16 +39,7 @@ Testimonials
 </div>
 {% endfor %}
 </div>  
-            <div class="col-md-3">
-            </div>
-            <div class="col-md-6">
-            
-            <form action="." method="post" >
-            {{ form|crispy }}
-            <p><input class="btn btn-block btn-primary"type="submit" value="Post Testimonial"></p>
-            {% csrf_token %}
-            </form>
-            </div>
-            <div class="col-md-3">
-            </div>
+
+
+
 {% endblock %}

@@ -178,7 +178,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="http://admis.hp.nic.in/hpprisons/"><img src="{% static 'img/hpj-logo.jpg' %}"></a>
+          <a class="navbar-brand" href="http://admis.hp.nic.in/hpprisons/"><img class="img-responsive" src="{% static 'img/hpj-logo.jpg' %}"></a>
 
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -223,8 +223,7 @@
             </li>
             <li><a href="#about" style="font-family: 'Oswald', sans-serif;">About</a></li>
             <li><a href="#contact" style="font-family: 'Oswald', sans-serif;">Contact</a></li>
-            <li><a href="{% url 'testimonials:testimonial_list' %}" style="font-family: 'Oswald', sans-serif;"> Testimonial</a></li>
-            
+                        
           </ul>
           <ul class="nav navbar-nav navbar-right">
             
@@ -316,7 +315,7 @@
       <div class="col-md-2 col-sm-6 paddingtop-bottom">
         <h6 class="heading7">Contact Us</h6>
         <ul class="footer-ul">
-          <li><a href="#"> Consumer Feedback</a></li>
+          <li><a href="{% url 'testimonials:testimonial_list' %}"> Consumer Feedback</a></li>
           <li><a href="#"> Complaint Policy</a></li>
           <li><a href="#"> Suppliers / Our Offices</a></li>
           <li><a href="#"> Frequently Ask Questions</a></li>
