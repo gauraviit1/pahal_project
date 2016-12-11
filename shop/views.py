@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from shop.models import Cateogry, Product
 from cart.forms import CartAddProductForm
 from testimonials.models import Testimonial_
+
+
 # Create your views here.
 def product_list(request, cateogry_slug=None):
     cateogry = None
@@ -21,27 +23,16 @@ def product_list(request, cateogry_slug=None):
 
 def product_detail(request, id, slug):
 
-    bakery_products = Product.objects.filter(available=True, cateogry__name="Bakery")
-    handicraft_products = Product.objects.filter(available=True, cateogry__name="Handicrafts")
-
     product = get_object_or_404(Product, id=id,
                                      slug=slug,
                                      available=True)
     cart_product_form = CartAddProductForm()
     return render(request, 'shop/product/detail.html',
                   {'product': product,
-                   'bakery_products': bakery_products,
-                    'handicraft_products': handicraft_products,
                    'cart_product_form': cart_product_form})
 
 
 def mainPage(request):
     
-    bakery_products = Product.objects.filter(available=True, cateogry__name="Bakery")
-    handicraft_products = Product.objects.filter(available=True, cateogry__name="Handicrafts")
 
-    return render(request, 'shop/product/main.html', {
-        'bakery_products': bakery_products,
-        'handicraft_products': handicraft_products,
-        
-    })
+    return render(request, 'shop/product/main.html')
