@@ -33,6 +33,5 @@ def product_detail(request, id, slug):
 
 
 def mainPage(request):
-    
-
-    return render(request, 'shop/product/main.html')
+    cateogries = Cateogry.objects.all()
+    return render(request, 'shop/product/main.html', {'cateogries': cateogries, } )

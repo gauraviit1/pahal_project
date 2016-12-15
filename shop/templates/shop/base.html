@@ -260,11 +260,17 @@
           <h3>"Every rupee spent by you will be used for welfare of inmates"</h3>    
           </div>
         </div>
-
-    {% block carousel %}
-
-      
-    {% endblock %}
+   
+    <div class="container">
+      <div class="row">
+        {% block sidebar %}
+          
+        {% endblock sidebar %}
+        {% block carousel %}
+           
+        {% endblock %}
+      </div>
+    </div>
 
     <div id="content">
         {% block content %}
