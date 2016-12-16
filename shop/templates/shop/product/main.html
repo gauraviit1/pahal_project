@@ -22,8 +22,8 @@
 		<h3 class="panel-title">Top Sellers</h3>
 	</div>
 	<div class="row panel-body">
-			{% for product in bakery_items|slice:":5" %}
-				<div class="col-md-2 panel panel-default" style="background:#c9cdff; margin-bottom:-10px; margin-top:-10px; ">
+			{% for product in bakery_items|slice:":6" %}
+				<div class="col-md-2 panel panel-default" style="background:#c9cdff; margin-bottom:-10px; margin-top:-10px; margin-right:5px; margin-left:5px; ">
 					<a href="{{ product.get_absolute_url }}"><img class="center-block img-responsive" src="{% if product.image %}{{ product.image.url }}
 	                                    {% else %}{% static "img/no_image.png" %}{% endif %}" alt="..."
 	                                    style ="max-height:100px;"></a>
