@@ -1,7 +1,12 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.utils.functional import lazy
 from PIL import Image
+from django.contrib.postgres.fields import HStoreField
 
+from django.core.exceptions import ValidationError
+from django.utils.translation import ugettext_lazy as _
+from decimal import Decimal
 
 # Create your models here.
 class Cateogry(models.Model):
@@ -9,7 +14,7 @@ class Cateogry(models.Model):
     slug = models.SlugField(db_index=True, unique=True)
 
     class Meta:
-        ordering =['name']
+        ordering =   ['name']
         verbose_name = 'cateogry'
         verbose_name_plural = 'cateogries'
 
@@ -48,3 +53,18 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('shop:product_detail', args=[self.id, self.slug])
+
+
+class Attribute(models.Model):
+    product = models.ForeignKey('Product', related_name="patt")
+    weight = models.DecimalField(max_digits=7, decimal_places=3, blank=True, null=True)
+    waist_size = models.PositiveSmallIntegerField(blank=True, null=True)
+    size = models.CharField(max_length=2, blank=True, null=True)
+
+    def clean(self, *args, **kwargs):
+        super(Attribute, self).clean(*args, **kwargs)
+        if self.weight == Decimal('0.350'):
+            raise ValidationError({'weight': _('Cannot use this value')})
+
+    class Meta:
+        unique_together = ('product', 'weight')

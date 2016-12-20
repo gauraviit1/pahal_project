@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from shop.models import Cateogry, Product
+from shop.models import Cateogry, Product, Attribute
 from cart.forms import CartAddProductForm
 from testimonials.models import Testimonial_
 
@@ -26,10 +26,12 @@ def product_detail(request, id, slug):
     product = get_object_or_404(Product, id=id,
                                      slug=slug,
                                      available=True)
+    product_attributes = product.patt.all()
     cart_product_form = CartAddProductForm()
     return render(request, 'shop/product/detail.html',
                   {'product': product,
-                   'cart_product_form': cart_product_form})
+                   'cart_product_form': cart_product_form,
+                   'product_attributes': product_attributes,})
 
 
 def mainPage(request):

@@ -47,6 +47,19 @@
                     {% csrf_token %}
                     <input class ="btn btn-danger" type="submit" value="Add to Cart">
                 </form>
+                {% for atts in product_attributes %}
+                    {% if atts.weight %}
+                        {{atts.weight}}
+                    
+                    {% endif %}
+                    {% if atts.size %}
+                        {{atts.size}}
+                    
+                    {% endif %}
+                    {% if atts.waist_size %}
+                        {{atts.waist_size}}
+                    {% endif %}
+                {% endfor %}
                 {{ product.description|linebreaks }}
                 
             </div>
