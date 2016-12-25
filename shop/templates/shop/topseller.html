@@ -4,6 +4,15 @@
 
 
 
+{% load thumbnail %}
+{% thumbnail image.image "300" as im %}
+<a href="{{ image.image.url }}">
+<img src="{{ im.url }}" class="image-detail">
+</a>
+{% endthumbnail %}
+
+
+
 <div class="container-fluid">
   <div class="row" >
     <div class="col-md-12">
@@ -18,9 +27,14 @@
                 {% for product in bakery_items|slice:":1" %}
                   <div class="item active">
                   <div class="col-xs-12 col-sm-6 col-md-3 panel panel-default">
-                      <a href="{{ product.get_absolute_url }}"><img class="center-block img-responsive" src="{% if product.image %}{{ product.image.url }}
-                              {% else %}{% static "img/no_image.png" %}{% endif %}" alt="..."
-                              style ="max-height:100px;"></a>
+                      {% load thumbnail %}
+                      {% thumbnail product.image "120" as im %}
+                      <a href="{{ product.get_absolute_url }}">
+                        <img class="center-block img-responsive " src="{% if im %}{{ im.url }}
+                        {% else %}{% static "img/no_image.png" %}{% endif %}" alt="..."
+                        >
+                      </a>
+                      {% endthumbnail %}
                       <p class="text-center" style="padding-top:10px;"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></p>
                       <p class="text-center" >
                       <span class="badge">Rs. {{ product.price }}</span>
@@ -32,9 +46,14 @@
                 {% for product in bakery_items|slice:"1:3" %}
                   <div class="item">
                   <div class="col-xs-12 col-sm-6 col-md-3 panel panel-default">
-                      <a href="{{ product.get_absolute_url }}"><img class="center-block img-responsive" src="{% if product.image %}{{ product.image.url }}
-                              {% else %}{% static "img/no_image.png" %}{% endif %}" alt="..."
-                              style ="max-height:100px;"></a>
+                      {% load thumbnail %}
+                      {% thumbnail product.image "120" as im %}
+                      <a href="{{ product.get_absolute_url }}">
+                        <img class="center-block img-responsive " src="{% if im %}{{ im.url }}
+                        {% else %}{% static "img/no_image.png" %}{% endif %}" alt="..."
+                        >
+                      </a>
+                      {% endthumbnail %}
                       <p class="text-center" style="padding-top:10px;"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></p>
                       <p class="text-center" >
                       <span class="badge">Rs. {{ product.price }}</span>
@@ -46,9 +65,14 @@
                 {% for product in handicraft_items|slice:":3" %}
                   <div class="item">
                   <div class="col-xs-12 col-sm-6 col-md-3 panel panel-default " >
-                      <a href="{{ product.get_absolute_url }}"><img class="center-block img-responsive" src="{% if product.image %}{{ product.image.url }}
-                              {% else %}{% static "img/no_image.png" %}{% endif %}" alt="..."
-                              style ="max-height:100px;"></a>
+                      {% load thumbnail %}
+                      {% thumbnail product.image "120" as im %}
+                      <a href="{{ product.get_absolute_url }}">
+                        <img class="center-block img-responsive " src="{% if im %}{{ im.url }}
+                        {% else %}{% static "img/no_image.png" %}{% endif %}" alt="..."
+                        >
+                      </a>
+                      {% endthumbnail %}
                       <p class="text-center" style="padding-top:10px;"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></p>
                       <p class="text-center" >
                       <span class="badge">Rs. {{ product.price }}</span>

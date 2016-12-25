@@ -43,6 +43,7 @@ INSTALLED_APPS = (
 
     'django.contrib.postgres',
     'crispy_forms',
+    'sorl.thumbnail',
     'shop',
     'cart',
     'orders',
