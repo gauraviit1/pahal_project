@@ -43,3 +43,18 @@
 }
 
 */
+
+.carousel.vertical .carousel-control {
+  width: 4%;
+  background-image: none;
+}
+.carousel.vertical .carousel-control.left {
+  margin-left: 15px;
+}
+.carouse.vertical .carousel-control.right {
+  margin-right: 15px;
+}
+
+#myCarousel1 > .carousel-inner > .item p{
+  color:black;
+} 
